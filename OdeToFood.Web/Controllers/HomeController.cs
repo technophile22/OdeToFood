@@ -13,9 +13,9 @@ namespace OdeToFood.Web.Controllers
         IRestaurantData db;
 
         //Constructor 
-        public HomeController()
+        public HomeController(IRestaurantData db)
         {
-            db = new InMemoryRestaurantData();
+            this.db = db;
         }
         public ActionResult Index()
         {
