@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OdeToFood.Data.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,19 @@ namespace OdeToFood.Web.Controllers
 {
     public class HomeController : Controller
     {
+        //Creating instance of IRestaurantData interface
+        IRestaurantData db;
+
+        //Constructor 
+        public HomeController()
+        {
+            db = new InMemoryRestaurantData();
+        }
         public ActionResult Index()
         {
-            return View();
+            //calling the get all function from interface
+            var model = db.GetAll();
+            return View(model);
         }
 
         public ActionResult About()
