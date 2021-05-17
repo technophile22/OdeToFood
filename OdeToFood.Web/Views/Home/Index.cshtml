@@ -8,14 +8,3 @@
     
     <div>There are @Model.Count() restaurants in the database.</div>
 </div>
-<div>
-    List of restaurants in the database -
-</div>
-<ul>
-    @foreach(var restaurant in Model)
-    {
-        <li>
-            @restaurant.Name
-        </li>
-    }
-</ul>
