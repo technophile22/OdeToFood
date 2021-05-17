@@ -32,6 +32,22 @@ namespace OdeToFood.Data.Services
         {
             return restaurants.OrderBy(r => r.Name);
         }
+
+        public void Add(Restaurant restaurant)
+        {
+            restaurants.Add(restaurant);
+            restaurant.Id = restaurants.Max(r => r.Id) + 1;
+        }
+
+        public void Update(Restaurant restaurant)
+        {
+            var existing = Get(restaurant.Id);
+            if(existing != null)
+            {
+                existing.Name = restaurant.Name;
+                existing.Cuisine = restaurant.Cuisine;
+            }
+        }
     }
 }
  
