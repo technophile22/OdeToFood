@@ -104,7 +104,7 @@ namespace OdeToFood.Web.Controllers
             {
                 return View("NotFound");
             }
-            return View();
+            return View(model);
         }
 
         [HttpPost]
